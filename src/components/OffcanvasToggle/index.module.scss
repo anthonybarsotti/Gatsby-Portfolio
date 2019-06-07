@@ -3,29 +3,40 @@
 	background-color: transparent;
 	border: 0;
 	border-radius: 0;
+	cursor: pointer;
 	height: 44px;
 	width: 44px;
+	padding: 0;
 	position: relative;
 }
 
-.iconLine {
+.line {
 	display: block;
-	height: 5px;
-	width: 35px;
 	left: 50%;
+	height: 3px;
+	width: 24px;
 	position: absolute;
 	transform: translateX(-50%);
 	transform-origin: center;
 	transition-duration: .3s;
 	transition-property: opacity, transform;
+	@media(min-width: 768px) {
+		width: 35px;
+	}
 	&:nth-child(1) {
-		top: 9px;
+		top: 12px;
+		@media(min-width: 768px) {
+			top: 9px;
+		}
 	}
 	&:nth-child(2),
 	&:nth-child(3) {
 		top: 50%;
 	}
 	&:nth-child(4) {
-		bottom: 9px;
+		bottom: 12px;
+		@media(min-width: 768px) {
+			bottom: 9px;
+		}
 	}
 }
