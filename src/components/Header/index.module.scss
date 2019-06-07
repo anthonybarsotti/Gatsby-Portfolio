@@ -1,0 +1,19 @@
+@import "../../styles/variables";
+
+.header {
+	padding: 35px 0;
+}
+
+.inner {
+	align-items: center;
+	display: flex;
+}
+
+.logo {
+	font-family: $serif;
+	font-size: 35px;
+	margin-right: auto;
+	text-decoration: none;
+	text-transform: lowercase;
+	transition: .3s color ease-in-out;
+}
