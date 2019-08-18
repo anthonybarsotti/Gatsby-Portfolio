@@ -1,7 +1,15 @@
 @import "../../styles/variables";
 
 .header {
-	padding: 35px 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+.header-bar {
+	position: relative;
+	z-index: 101; // Above offcanvas
 }
 
 .inner {
@@ -16,7 +24,8 @@
 	margin-right: auto;
 	text-decoration: none;
 	text-transform: lowercase;
-	transition: .3s color ease-in-out;
+	transition: $offcanvas-transition-dur color ease-in-out;
+	outline: none;
 	@media (min-width: 768px) {
 		font-size: 35px;
 	}

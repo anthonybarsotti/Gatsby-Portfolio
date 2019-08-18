@@ -1,0 +1,4 @@
+%vh100 {
+	height: 100vh; // Falback for browsers that don't support custom properties
+	height: calc(var(--vh, 1vh) * 100);
+}

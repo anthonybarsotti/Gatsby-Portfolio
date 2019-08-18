@@ -1,3 +1,5 @@
+@import "../../styles/variables";
+
 .button {
 	appearance: none;
 	background-color: transparent;
@@ -8,6 +10,7 @@
 	width: 44px;
 	padding: 0;
 	position: relative;
+	outline: none;
 }
 
 .line {
@@ -18,8 +21,9 @@
 	position: absolute;
 	transform: translateX(-50%);
 	transform-origin: center;
-	transition-duration: .3s;
-	transition-property: opacity, transform;
+	transition: $offcanvas-transition-dur background-color ease-in-out,
+		$offcanvas-transition-dur opacity ease-in-out,
+		$offcanvas-transition-dur transform ease-in-out;
 	@media(min-width: 768px) {
 		width: 35px;
 	}

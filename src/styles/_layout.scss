@@ -1,3 +1,6 @@
 .outer-pad {
-	padding: 0 35px;
+	padding: 24px;
+	@media(min-width: 768px) {
+		padding: 35px;
+	}
 }

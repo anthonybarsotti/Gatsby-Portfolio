@@ -1,0 +1,15 @@
+@import "../../styles/variables";
+@import "../../styles/placeholder-selectors";
+
+.offcanvas {
+	@extend %vh100;
+	background-color: rgba(255, 113, 0, .9);
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: $offcanvas-transition-dur opacity ease-in-out,
+		$offcanvas-transition-dur transform ease-in-out,
+		$offcanvas-transition-dur visibility ease-in-out;
+	width: 100%;
+	z-index: 100;
+}
