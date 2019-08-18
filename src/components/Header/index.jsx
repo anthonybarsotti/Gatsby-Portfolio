@@ -47,7 +47,7 @@ export default class Header extends React.Component {
 
 		return <header className={ styles.header }>
 			<div className={ styles.headerBar }>
-				<div className="outer-pad">
+				<div className="p-6 md:p-8">
 					<div className={ styles.inner }>
 						<Link
 							className={ styles.logo }

@@ -1,0 +1,4 @@
+// Convert pixel values to rems (assumes default browser font-size of 16px)
+@function rem($value, $base: 16px) {
+	@return unitless($value) / unitless($base) * 1rem;
+}

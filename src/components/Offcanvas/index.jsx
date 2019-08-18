@@ -30,7 +30,7 @@ export default class Offcanvas extends React.Component {
 			style={ this.computedStyles }
 			aria-hidden={ !active }
 			aria-labelledby={ toggleId }
-			aria-label="Main navigation"
+			aria-label="Primary"
 		>
 
 		</nav>;

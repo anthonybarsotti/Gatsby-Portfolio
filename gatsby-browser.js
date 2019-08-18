@@ -1,4 +1,3 @@
-import "normalize.css";
 import "./src/styles/main.scss";
 
 export const onClientEntry = () => {

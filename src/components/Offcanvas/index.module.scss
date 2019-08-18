@@ -1,6 +1,3 @@
-@import "../../styles/variables";
-@import "../../styles/placeholder-selectors";
-
 .offcanvas {
 	@extend %vh100;
 	background-color: rgba(255, 113, 0, .9);
