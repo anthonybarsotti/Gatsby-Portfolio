@@ -1,0 +1,12 @@
+// Strip unit from number
+@function strip-unit($number) {
+	@if type-of($number) == 'number' and not unitless($number) {
+		@return $number / ($number * 0 + 1);
+	}
+	@return $number;
+}
+
+// Convert pixel values to rems (assumes default browser font-size of 16px)
+@function rem($value, $base: 16px) {
+	@return strip-unit($value) / strip-unit($base) * 1rem;
+}

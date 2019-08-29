@@ -1,0 +1,30 @@
+.header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+.header-bar {
+	position: relative;
+	z-index: 101; // Above offcanvas
+}
+
+.inner {
+	align-items: center;
+	display: flex;
+}
+
+.logo {
+	@apply font-serif;
+	font-size: rem(24);
+	line-height: 1.2;
+	margin-right: auto;
+	text-decoration: none;
+	text-transform: lowercase;
+	transition: $offcanvas-transition-dur color ease-in-out;
+	outline: none;
+	@media(min-width: 768px) {
+		font-size: rem(35);
+	}
+}
