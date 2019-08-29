@@ -17,14 +17,14 @@
 
 .logo {
 	@apply font-serif;
-	font-size: 24px;
+	font-size: rem(24);
 	line-height: 1.2;
 	margin-right: auto;
 	text-decoration: none;
 	text-transform: lowercase;
 	transition: $offcanvas-transition-dur color ease-in-out;
 	outline: none;
-	@media (min-width: 768px) {
-		font-size: 35px;
+	@media(min-width: 768px) {
+		font-size: rem(35);
 	}
 }

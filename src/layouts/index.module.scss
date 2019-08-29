@@ -1,0 +1,14 @@
+.layout {
+	min-height: 100vh;
+	overflow: hidden;
+	padding-top: rem(92);
+	position: relative;
+	@media(min-width: 768px) {
+		padding-top: rem(108);
+	}
+}
+
+.main {
+	@apply font-sans;
+	padding: 0 rem(35) rem(45);
+}

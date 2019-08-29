@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-
 import styles from "./index.module.scss";
 
 export default class OffcanvasToggle extends React.Component {
@@ -45,16 +44,18 @@ export default class OffcanvasToggle extends React.Component {
 	render() {
 		const { active, onClick, id, navId } = this.props;
 
-		return <button
-			id={ id }
-			className={ styles.button }
-			onClick={ onClick }
-			aria-label="Toggle main menu"
-			aria-expanded={ active }
-			aria-controls={ navId }
-		>
-			{ this.iconLines }
-		</button>;
+		return (
+			<button
+				id={ id }
+				className={ styles.button }
+				onClick={ onClick }
+				aria-label="Toggle main menu"
+				aria-expanded={ active }
+				aria-controls={ navId }
+			>
+				{ this.iconLines }
+			</button>
+		);
 	}
 
 };

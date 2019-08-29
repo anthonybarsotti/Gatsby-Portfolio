@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-
 import styles from "./index.module.scss";
 
 export default class Offcanvas extends React.Component {
@@ -24,16 +23,18 @@ export default class Offcanvas extends React.Component {
 	render() {
 		const { active, id, toggleId } = this.props;
 
-		return <nav
-			id={ id }
-			className={ styles.offcanvas }
-			style={ this.computedStyles }
-			aria-hidden={ !active }
-			aria-labelledby={ toggleId }
-			aria-label="Primary"
-		>
+		return (
+			<nav
+				id={ id }
+				className={ styles.offcanvas }
+				style={ this.computedStyles }
+				aria-hidden={ !active }
+				aria-labelledby={ toggleId }
+				aria-label="Primary"
+			>
 
-		</nav>;
+			</nav>
+		);
 	}
 
 };

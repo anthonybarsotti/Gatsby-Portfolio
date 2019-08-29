@@ -1,0 +1,55 @@
+.article {
+	margin: rem(45) auto;
+	@media(min-width: 768px) {
+		align-items: flex-start;
+		display: flex;
+	}
+}
+
+.featured-image {
+	margin: 0 0 rem(18);
+	@media(min-width: 768px) {
+		flex: 0 0 55%;
+		margin: 0 rem(30) 0 0;
+	}
+}
+
+.article-content {
+	@media(min-width: 768px) {
+		align-self: stretch;
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+	}
+}
+
+.title {
+	@apply font-serif;
+	font-size: rem(35);
+	font-weight: 300;
+	line-height: (42 / 35);
+}
+
+.subtitle {
+	@apply font-serif;
+	color: #8F8F8F;
+	font-size: rem(25);
+	font-weight: 300;
+	line-height: (42 / 25);
+	margin-bottom: rem(22);
+}
+
+.cta {
+	@apply font-serif;
+	display: inline-block;
+	font-size: rem(25);
+	line-height: (30 / 25);
+	opacity: .5;
+	text-transform: lowercase;
+	transition: .3s opacity ease-in-out;
+	&:hover,
+	&:focus {
+		opacity: 1;
+		outline: none;
+	}
+}

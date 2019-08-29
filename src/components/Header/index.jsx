@@ -1,10 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
-
 import OffcanvasToggle from "../OffcanvasToggle";
 import Offcanvas from "../Offcanvas";
-
 import styles from "./index.module.scss";
 
 export default class Header extends React.Component {
@@ -14,7 +12,8 @@ export default class Header extends React.Component {
 	};
 
 	static propTypes = {
-		siteName: PropTypes.string.isRequired
+		siteName: PropTypes.string.isRequired,
+		styles: PropTypes.object.isRequired
 	};
 
 	constructor(props) {
@@ -25,14 +24,10 @@ export default class Header extends React.Component {
 		};
 	}
 
-	get computedStyles() {
+	get navColor() {
 		const { navActive } = this.state;
 
-		return {
-			logo: {
-				color: navActive ? "#000" : "#fff"
-			}
-		};
+		return navActive ? "#000" : this.props.styles.color;
 	}
 
 	toggleNavActive = () => {
@@ -45,33 +40,35 @@ export default class Header extends React.Component {
 		const offcanvasId = "main-nav";
 		const offcanvasToggleId = "main-nav-toggle";
 
-		return <header className={ styles.header }>
-			<div className={ styles.headerBar }>
-				<div className="p-6 md:p-8">
-					<div className={ styles.inner }>
-						<Link
-							className={ styles.logo }
-							style={ this.computedStyles.logo }
-							to="/"
-						>
-							{ siteName }
-						</Link>
-						<OffcanvasToggle
-							active={ navActive }
-							iconColor={ this.computedStyles.logo.color }
-							onClick={ this.toggleNavActive }
-							id={ offcanvasToggleId }
-							navId={ offcanvasId }
-						/>
+		return (
+			<header className={ styles.header }>
+				<div className={ styles.headerBar }>
+					<div className="p-6 md:p-8">
+						<div className={ styles.inner }>
+							<Link
+								className={ styles.logo }
+								style={{ color: this.navColor }}
+								to="/"
+							>
+								{ siteName }
+							</Link>
+							<OffcanvasToggle
+								active={ navActive }
+								iconColor={ this.navColor }
+								onClick={ this.toggleNavActive }
+								id={ offcanvasToggleId }
+								navId={ offcanvasId }
+							/>
+						</div>
 					</div>
 				</div>
-			</div>
-			<Offcanvas
-				active={ navActive }
-				id={ offcanvasId }
-				toggleId={ offcanvasToggleId }
-			/>
-		</header>;
+				<Offcanvas
+					active={ navActive }
+					id={ offcanvasId }
+					toggleId={ offcanvasToggleId }
+				/>
+			</header>
+		);
 	}
 
 };
