@@ -36,7 +36,6 @@ export default class ProjectTeaser extends React.Component {
 	render() {
 		const { id, title, subtitle, image, url } = this.props;
 		const headingId = `project-${id}-heading`;
-		const { fluid } = image.localFile.childImageSharp;
 		const blurFilter = this.state.blurred ? "blur(5px)" : null;
 
 		return (
@@ -46,13 +45,14 @@ export default class ProjectTeaser extends React.Component {
 			>
 				<Img
 					className={ styles.featuredImage }
-					fluid={{ ...fluid, aspectRatio: 16/9 }}
+					fluid={{ ...image.localFile.childImageSharp.fluid, aspectRatio: 16/9 }}
 					objectFit="cover"
 					objectPosition="50% 50%"
 					style={{ filter: blurFilter, transition: ".3s filter ease-in-out" }}
+					alt={ image.alt_text }
 				/>
 				<div className={ styles.articleContent }>
-					<div style={{ filter: blurFilter, transition: ".3s filter ease-in-out" }}>
+					<div className="mb-4" style={{ filter: blurFilter, transition: ".3s filter ease-in-out" }}>
 						<h2 id={ headingId } className={ styles.title }>{ title }</h2>
 						<p className={ styles.subtitle }>{ subtitle }</p>
 						<p>{ this.formattedExcerpt }</p>
