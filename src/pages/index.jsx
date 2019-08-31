@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { Helmet } from "react-helmet";
+import PageTransition from "gatsby-plugin-page-transitions";
 import Layout from "../layouts";
 import ProjectTeaser from "../components/ProjectTeaser";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
@@ -23,13 +24,15 @@ const IndexPage = (props) => {
 	));
 
 	return (
-		<Layout>
-			<Helmet>
-				{metaTags}
-			</Helmet>
-			<h1 className="sr-only">{title}</h1>
-			{teasers}
-		</Layout>
+		<PageTransition>
+			<Layout>
+				<Helmet>
+					{metaTags}
+				</Helmet>
+				<h1 className="sr-only">{title}</h1>
+				{teasers}
+			</Layout>
+		</PageTransition>
 	);
 };
 

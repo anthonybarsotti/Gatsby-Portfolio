@@ -11,6 +11,8 @@ module.exports = {
 	},
 	plugins: [
 		"gatsby-plugin-react-helmet",
+		"gatsby-transformer-sharp",
+		"gatsby-plugin-sharp",
 		{
 			resolve: "gatsby-source-filesystem",
 			options: {
@@ -18,8 +20,6 @@ module.exports = {
 				path: `${__dirname}/src/images`,
 			},
 		},
-		"gatsby-transformer-sharp",
-		"gatsby-plugin-sharp",
 		{
 			resolve: "gatsby-plugin-sass",
 			options: {
@@ -43,6 +43,12 @@ module.exports = {
 					sourceUrl: `${process.env.WP_PROTOCOL}://${process.env.WP_URL}`,
 					replacementUrl: process.env.SITE_URL
 				}
+			}
+		},
+		{
+			resolve: "gatsby-plugin-page-transitions",
+			options: {
+				transitionTime: 750
 			}
 		}
 	]
