@@ -8,20 +8,20 @@ const IndexPage = (props) => {
 	const { title } = useSiteMetadata();
 	const teasers = props.data.allWordpressWpProject.edges.map(({ node }) => (
 		<ProjectTeaser
-			key={ node.id }
-			id={ node.id }
-			title={ node.title }
-			excerpt={ node.excerpt }
-			url={ node.path }
-			subtitle={ node.acf.project_subtitle }
-			image={ node.acf.project_featured_images[0] }
+			key={node.id}
+			id={node.id}
+			title={node.title}
+			excerpt={node.excerpt}
+			url={node.path}
+			subtitle={node.acf.project_subtitle}
+			image={node.acf.project_featured_images[0]}
 		/>
 	));
 
 	return (
 		<Layout>
-			<h1 className="sr-only">{ title }</h1>
-			{ teasers }
+			<h1 className="sr-only">{title}</h1>
+			{teasers}
 		</Layout>
 	);
 };

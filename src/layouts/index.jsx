@@ -5,17 +5,13 @@ import styles from "./index.module.scss";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
 
 const Layout = (props) => {
-	const { children } = props;
 	const { title } = useSiteMetadata();
 
 	return (
 		<div className={styles.layout} style={props.styles}>
-			<Header
-				siteName={ title }
-				styles={{ color: props.styles.color }}
-			/>
+			<Header siteName={title} styles={{ color: props.styles.color }} />
 			<main id="main-content" className={styles.main}>
-				{ children }
+				{props.children}
 			</main>
 		</div>
 	);
@@ -23,14 +19,14 @@ const Layout = (props) => {
 
 Layout.propTypes = {
 	children: PropTypes.node.isRequired,
-	styles: PropTypes.object.isRequired
+	styles: PropTypes.object.isRequired,
 };
 
 Layout.defaultProps = {
 	styles: {
 		backgroundColor: "#000",
-		color: "#fff"
-	}
+		color: "#fff",
+	},
 };
 
 export default Layout;

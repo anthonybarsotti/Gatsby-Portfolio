@@ -17,6 +17,6 @@ export const useSiteMetadata = () => {
 	);
 
 	return {
-		title: _get(allWordpressSiteMetadata, "edges[0].node.name", "My Portfolio")
+		title: _get(allWordpressSiteMetadata, "edges[0].node.name", "My Portfolio"),
 	};
-};
+}
