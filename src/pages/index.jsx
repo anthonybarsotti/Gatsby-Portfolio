@@ -1,11 +1,14 @@
 import React from "react";
 import { graphql } from "gatsby";
+import { Helmet } from "react-helmet";
 import Layout from "../layouts";
 import ProjectTeaser from "../components/ProjectTeaser";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
+import generateMetaTags from "../helpers/generate-meta-tags";
 
 const IndexPage = (props) => {
 	const { title } = useSiteMetadata();
+	const metaTags = generateMetaTags(props.data.wordpressWpFrontpage.yoast_meta);
 	const teasers = props.data.allWordpressWpProject.edges.map(({ node }, i) => (
 		<ProjectTeaser
 			key={node.id}
@@ -21,6 +24,9 @@ const IndexPage = (props) => {
 
 	return (
 		<Layout>
+			<Helmet>
+				{metaTags}
+			</Helmet>
 			<h1 className="sr-only">{title}</h1>
 			{teasers}
 		</Layout>
@@ -30,7 +36,14 @@ const IndexPage = (props) => {
 export default IndexPage;
 
 export const pageQuery = graphql`
-	query {
+	query IndexPage {
+		wordpressWpFrontpage {
+			yoast_meta {
+				content
+				name
+				property
+			}
+		}
 		allWordpressWpProject {
 			edges {
 				node {
