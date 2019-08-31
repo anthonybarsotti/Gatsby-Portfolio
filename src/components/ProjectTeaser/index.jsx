@@ -7,25 +7,27 @@ import styles from "./index.module.scss";
 const formatExcerpt = (excerpt) => {
 	const temp = document.createElement("DIV");
 
-	temp.innerHTML = this.props.excerpt;
+	temp.innerHTML = excerpt;
 
 	return `${temp.textContent.replace("[…]", "").trim()}…`;
 };
 
 const ProjectTeaser = (props) => {
-	const { id, title, subtitle, image, url } = this.props;
-	const [blurred, setBlurred] = useState(false);
+	const { id, title, subtitle, image, url, index } = props;
+	const [ blurred, setBlurred ] = useState(false);
 	const headingId = `project-${id}-heading`;
 	const blurFilter = blurred ? "blur(5px)" : null;
 	const formattedExcerpt = formatExcerpt(props.excerpt);
+	const even = (index + 1) % 2 === 0;
 
 	return (
 		<article
-			className={styles.article}
+			className={`${styles.article}`}
+			style={{ flexDirection: even ? 'row-reverse' : 'row' }}
 			aria-labelledby={headingId}
 		>
 			<Img
-				className={styles.featuredImage}
+				className={`${styles.featuredImage} lg:m${even ? 'l' : 'r'}-8 mb-5 lg:mb-0`}
 				fluid={{ ...image.localFile.childImageSharp.fluid, aspectRatio: 16 / 9 }}
 				objectFit="cover"
 				objectPosition="50% 50%"
@@ -33,7 +35,7 @@ const ProjectTeaser = (props) => {
 				alt={image.alt_text}
 			/>
 			<div className={styles.articleContent}>
-				<div className="mb-4" style={{ filter: blurFilter, transition: ".3s filter ease-in-out" }}>
+				<div className={`mb-4 lg:text-${even ? 'right' : 'left'}`} style={{ filter: blurFilter, transition: ".3s filter ease-in-out" }}>
 					<h2 id={headingId} className={styles.title}>{title}</h2>
 					<p className={styles.subtitle}>{subtitle}</p>
 					<p>{formattedExcerpt}</p>
@@ -61,7 +63,8 @@ ProjectTeaser.propTypes = {
 	subtitle: PropTypes.string.isRequired,
 	excerpt: PropTypes.string.isRequired,
 	image: PropTypes.object.isRequired,
-	url: PropTypes.string.isRequired
+	url: PropTypes.string.isRequired,
+	index: PropTypes.number.isRequired
 };
 
 export default ProjectTeaser;

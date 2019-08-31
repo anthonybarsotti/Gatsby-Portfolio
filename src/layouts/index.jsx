@@ -9,24 +9,26 @@ const Layout = (props) => {
 
 	return (
 		<div className={styles.layout} style={props.styles}>
-			<Header siteName={title} styles={{ color: props.styles.color }} />
-			<main id="main-content" className={styles.main}>
-				{props.children}
-			</main>
+			<div className={styles.maxBound}>
+				<Header siteName={title} styles={{ color: props.styles.color }} />
+				<main id="main-content" className="font-sans pt-0 px-8 pb-10">
+					{props.children}
+				</main>
+			</div>
 		</div>
 	);
 };
 
 Layout.propTypes = {
 	children: PropTypes.node.isRequired,
-	styles: PropTypes.object.isRequired,
+	styles: PropTypes.object.isRequired
 };
 
 Layout.defaultProps = {
 	styles: {
 		backgroundColor: "#000",
-		color: "#fff",
-	},
+		color: "#fff"
+	}
 };
 
 export default Layout;

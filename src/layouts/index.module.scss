@@ -8,7 +8,7 @@
 	}
 }
 
-.main {
-	@apply font-sans;
-	padding: 0 rem(35) rem(45);
+.max-bound {
+	margin: 0 auto;
+	max-width: rem(1920);
 }

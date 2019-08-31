@@ -6,7 +6,7 @@ import { useSiteMetadata } from "../hooks/use-site-metadata";
 
 const IndexPage = (props) => {
 	const { title } = useSiteMetadata();
-	const teasers = props.data.allWordpressWpProject.edges.map(({ node }) => (
+	const teasers = props.data.allWordpressWpProject.edges.map(({ node }, i) => (
 		<ProjectTeaser
 			key={node.id}
 			id={node.id}
@@ -15,6 +15,7 @@ const IndexPage = (props) => {
 			url={node.path}
 			subtitle={node.acf.project_subtitle}
 			image={node.acf.project_featured_images[0]}
+			index={i}
 		/>
 	));
 

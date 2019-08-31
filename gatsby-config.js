@@ -38,7 +38,11 @@ module.exports = {
 				baseUrl: process.env.WP_URL,
 				protocol: process.env.WP_PROTOCOL,
 				hostingWPCOM: false,
-				useACF: true
+				useACF: true,
+				searchAndReplaceContentUrls: {
+					sourceUrl: `${process.env.WP_PROTOCOL}://${process.env.WP_URL}`,
+					replacementUrl: process.env.SITE_URL
+				}
 			}
 		}
 	]
