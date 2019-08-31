@@ -5,18 +5,16 @@ import styles from "./index.module.scss";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
 
 const Layout = (props) => {
-	const { children } = props;
 	const { title } = useSiteMetadata();
 
 	return (
 		<div className={styles.layout} style={props.styles}>
-			<Header
-				siteName={ title }
-				styles={{ color: props.styles.color }}
-			/>
-			<main id="main-content" className={styles.main}>
-				{ children }
-			</main>
+			<div className={styles.maxBound}>
+				<Header siteName={title} styles={{ color: props.styles.color }} />
+				<main id="main-content" className="font-sans pt-0 px-8 pb-10">
+					{props.children}
+				</main>
+			</div>
 		</div>
 	);
 };

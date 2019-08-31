@@ -1,16 +1,14 @@
 .article {
 	margin: rem(45) auto;
-	@media(min-width: 768px) {
+	@media(min-width: 1024px) {
 		align-items: flex-start;
 		display: flex;
 	}
 }
 
 .featured-image {
-	margin: 0 0 rem(18);
-	@media(min-width: 768px) {
+	@media(min-width: 1024px) {
 		flex: 0 0 55%;
-		margin: 0 rem(30) 0 0;
 	}
 }
 
