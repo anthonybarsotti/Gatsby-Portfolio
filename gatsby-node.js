@@ -1,7 +1,31 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const path = require("path");
+const slash = require("slash");
 
-// You can delete this file if you're not using it
+/* Queries */
+const projectsQuery = `
+	query {
+		allWordpressWpProject {
+			edges {
+				node {
+					id
+					path
+				}
+			}
+		}
+	}
+`;
+
+exports.createPages = async ({ graphql, actions }) => {
+	const { createPage } = actions;
+	const result = await graphql(projectsQuery);
+
+	result.data.allWordpressWpProject.edges.forEach(({ node }) => {
+		createPage({
+			path: node.path,
+			component: slash(path.resolve("./src/templates/project.jsx")),
+			context: {
+				id: node.id
+			}
+		});
+	});
+};

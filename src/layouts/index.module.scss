@@ -1,0 +1,14 @@
+.layout {
+	min-height: 100vh;
+	overflow: hidden;
+	padding-top: rem(92);
+	position: relative;
+	@media(min-width: 768px) {
+		padding-top: rem(108);
+	}
+}
+
+.max-bound {
+	margin: 0 auto;
+	max-width: rem(1920);
+}
