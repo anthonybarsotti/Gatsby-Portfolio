@@ -15,7 +15,7 @@ const Layout = (props) => {
 				styles={{ color: props.styles.color }}
 			/>
 			<main id="main-content" className={styles.main}>
-				{children}
+				{ children }
 			</main>
 		</div>
 	);

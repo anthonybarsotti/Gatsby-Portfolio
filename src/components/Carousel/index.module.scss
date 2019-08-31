@@ -1,0 +1,17 @@
+.carousel {
+	position: relative;
+	max-height: inherit;
+}
+
+.nav-button {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	height: 100%;
+	width: rem(64);
+	position: absolute;
+	top: 0;
+	&:focus {
+		outline: none;
+	}
+}

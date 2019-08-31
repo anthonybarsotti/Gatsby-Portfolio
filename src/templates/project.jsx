@@ -1,5 +1,6 @@
 import React from "react";
 import Layout from "../layouts";
+import Carousel from "../components/Carousel";
 import styles from "./index.module.scss";
 
 const ProjectTemplate = (props) => {
@@ -15,6 +16,12 @@ const ProjectTemplate = (props) => {
 					<p className={ styles.subtitle }>{ project.acf.project_subtitle }</p>
 				</header>
 				<section aria-label="project details">
+					<div className={ styles.carouselWrap }>
+						<Carousel
+							aspectRatio={ [ 100, 45 ] }
+							images={ project.acf.project_featured_images }	
+						/>
+					</div>
 					<div
 						className={`content-body text-center ${ styles.content }`}
 						dangerouslySetInnerHTML={{ __html: project.content }}
@@ -42,6 +49,7 @@ export const pageQuery = graphql`
 							}
 						}
 					}
+					id
 					alt_text
 				}
 			}
