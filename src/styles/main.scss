@@ -26,3 +26,11 @@ body {
 	font-size: rem(18);
 	line-height: (22 / 18);
 }
+
+.content-body {
+	p {
+		&:not(:last-child) {
+			@apply mb-4;
+		}
+	}
+}

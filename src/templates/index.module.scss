@@ -1,0 +1,25 @@
+
+.title {
+	@apply font-serif;
+	color: #000;
+	font-size: rem(30);
+	font-weight: 300;
+	line-height: (36 / 30);
+}
+
+.subtitle {
+	@apply font-sans;
+	color: #8F8F8F;
+	font-size: rem(25);
+	line-height: (36 / 25);
+}
+
+.carouselWrap {
+	margin: 0 rem(-35) rem(40);
+	max-height: 66.667vh;
+}
+
+.content {
+	margin: 0 auto;
+	max-width: rem(720);
+}

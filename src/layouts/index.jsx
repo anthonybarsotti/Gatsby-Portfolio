@@ -2,35 +2,35 @@ import React from "react";
 import PropTypes from "prop-types";
 import Header from "../components/Header";
 import styles from "./index.module.scss";
+import { useSiteMetadata } from "../hooks/use-site-metadata";
 
-export default class Layout extends React.Component {
+const Layout = (props) => {
+	const { children } = props;
+	const { title } = useSiteMetadata();
 
-	static propTypes = {
-		children: PropTypes.node.isRequired,
-		styles: PropTypes.object.isRequired
+	return (
+		<div className={styles.layout} style={props.styles}>
+			<Header
+				siteName={ title }
+				styles={{ color: props.styles.color }}
+			/>
+			<main id="main-content" className={styles.main}>
+				{ children }
+			</main>
+		</div>
+	);
+};
+
+Layout.propTypes = {
+	children: PropTypes.node.isRequired,
+	styles: PropTypes.object.isRequired
+};
+
+Layout.defaultProps = {
+	styles: {
+		backgroundColor: "#000",
+		color: "#fff"
 	}
+};
 
-	static defaultProps = {
-		styles: {
-			backgroundColor: "#000",
-			color: "#fff"
-		}
-	}
-
-	render() {
-		const { children } = this.props;
-
-		return (
-			<div className={ styles.layout } style={ this.props.styles }>
-				<Header
-					siteName="Maura Scanlan"
-					styles={{ color: this.props.styles.color }}
-				/>
-				<main id="main-content" className={ styles.main }>
-					{ children }
-				</main>
-			</div>
-		);
-	}
-
-}
+export default Layout;
